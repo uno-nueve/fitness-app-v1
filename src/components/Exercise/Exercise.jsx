@@ -2,9 +2,14 @@ import PropTypes from 'prop-types'
 import { useState } from 'react';
 
 const Exercise = ({exercise, progression}) => {
+    //? Exercise index state
     const [exIndex, setExIndex] = useState(0);
+
+    //? Progression index state
     const [progIndex, setProgIndex] = useState(0);
 
+    //* Function that upgrades the exercise's progressions.
+    //* Once it reaches the last progression it upgrades the exercise starting at the 1st progression.
     const upgradeExercise = () => {
         if (progIndex < progression[exIndex].length - 1 ) {
             setProgIndex(progIndex + 1)
@@ -16,6 +21,8 @@ const Exercise = ({exercise, progression}) => {
         }
     };
 
+    //* Function that downgrades the exercise's progressions.
+    //* Once it reaches the 1st progression it downgrades the exercise at the last progression.
     const downgradeExercise = () => {
         if (progIndex > 0) {
             setProgIndex(progIndex - 1)
