@@ -1,0 +1,127 @@
+.day_exercise {
+    width: 176px;
+    height: 234px;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.day_exercise-large {
+    width: 176px;
+    height: 480px;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.exercise_title {
+    background: black;
+    color: white;
+    height: 80px;
+    padding: 10px;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.exercise_title p {
+    color: lightslategray;
+    font-weight: 500;
+}
+
+.title_text {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 5px;
+}
+
+.title_text > p, h3 {
+    margin: 0;
+}
+
+.title_text p {
+    font-size: 14px;
+}
+
+.title_text h3 {
+    font-size: 16px;
+}
+
+.title_buttons {
+    display: flex;
+    flex-direction: column;
+    width: 25px;
+    height: 60px;
+    justify-content: space-between;
+}
+
+.btn-primary {
+    display: inline;
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 15px;
+    background: black;
+    color: white;
+}
+
+.upgrade-btn:hover {
+    outline: 2px solid greenyellow;
+}
+
+.upgrade-btn i:active {
+    color: greenyellow;
+}
+
+.downgrade-btn:hover {
+    outline: 2px solid tomato;
+}
+
+.downgrade-btn i:active {
+    color: tomato;
+}
+
+.btn-primary i {
+    font-size: 1.3rem;
+}
+
+.exercise_info {
+    background: white;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 0 0 15px 15px;
+    padding: 10px;
+    position: relative;
+}
+
+.ranking_buttons {
+    position: absolute;
+    bottom: 10px;
+    width: 95px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-secondary {
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.success {
+    background: #80b918;
+}
+
+.warning {
+    background: #ffc300;
+}
+
+.failure {
+    background: #dc2f02;
+}

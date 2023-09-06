@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import Exercise from '../Exercise/Exercise'
+import './Day.css'
 
 const Day = ({dayTitle, exercisesData}) => {
     return (

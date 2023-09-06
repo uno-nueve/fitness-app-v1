@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react';
+import './Exercise.css'
 
 const Exercise = ({exercise, progression}) => {
     //? Exercise index state
@@ -7,6 +8,9 @@ const Exercise = ({exercise, progression}) => {
 
     //? Progression index state
     const [progIndex, setProgIndex] = useState(0);
+    
+    //? Exercise ranking state
+    const [ranking, setRanking] = useState(null);
 
     //* Function that upgrades the exercise's progressions.
     //* Once it reaches the last progression it upgrades the exercise starting at the 1st progression.
@@ -34,24 +38,77 @@ const Exercise = ({exercise, progression}) => {
         }
     };
 
+    /**
+     * Function to set a ranking to the current exercise's progression.
+     * It toggles a class to add styles to the selected button.
+     * @param {string} rank 
+     */
+    const selectRanking = (rank) => {
+        setRanking(prevRank => {
+            return prevRank === rank ? null : rank
+        })
+    };
+
     return  (
-        <div className="day_exercise">
-            <div className="exercise_title">
-                <h3>{exercise[exIndex]}</h3>
-                <p>{progression[exIndex][progIndex]}</p>
-                <div className="title_buttons">
-                    <button className="upgrade-btn" onClick={upgradeExercise}>U</button>
-                    <button className="downgrade-btn" onClick={downgradeExercise}>D</button>
-                </div>
-            </div>
-            <div className="exercise_info">
-                <div className="ranking_buttons">
-                    <button className="btn success-btn"></button>
-                    <button className="btn warning-btn"></button>
-                    <button className="btn failure-btn"></button>
-                </div>
-            </div>
-        </div>
+        <>
+            {progression.length === 1
+                ?   <div className="day_exercise-large">
+                        <div className="exercise_title">
+                            <div className="title_text">
+                                <h3>{exercise[exIndex]}</h3>
+                            </div>
+                        </div>
+                        <div className="exercise_info">
+                            <div className="ranking_buttons">
+                                <button 
+                                    className={`btn-secondary success-btn ${
+                                        ranking === 'success' ? 'success' : ''
+                                    }`}
+                                    onClick={() => selectRanking('success')}
+                                ></button>
+                            </div>
+                        </div>
+                    </div>
+                :   <div className="day_exercise">
+                        <div className="exercise_title">
+                            <div className="title_text">
+                                <h3>{exercise[exIndex]}</h3>
+                                <p>{progression[exIndex][progIndex]}</p>
+                            </div>
+                            <div className="title_buttons">
+                                <button className="btn-primary upgrade-btn" onClick={upgradeExercise}>
+                                    <i className="fa-solid fa-circle-chevron-up"></i>
+                                </button>
+                                <button className="btn-primary downgrade-btn" onClick={downgradeExercise}>
+                                    <i className="fa-solid fa-circle-chevron-down"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div className="exercise_info">
+                            <div className="ranking_buttons">
+                                <button 
+                                    className={`btn-secondary success-btn ${
+                                        ranking === 'success' ? 'success' : ''
+                                    }`}
+                                    onClick={() => selectRanking('success')}
+                                ></button>
+                                <button 
+                                    className={`btn-secondary warning-btn ${
+                                        ranking === 'warning' ? 'warning' : ''
+                                    }`} 
+                                    onClick={() => selectRanking('warning')}
+                                ></button>
+                                <button 
+                                    className={`btn-secondary failure-btn ${
+                                        ranking === 'failure' ? 'failure' : ''
+                                    }`}
+                                    onClick={() => selectRanking('failure')}
+                                ></button>
+                            </div>
+                        </div>
+                    </div>
+            }
+        </>
     )
 }
 

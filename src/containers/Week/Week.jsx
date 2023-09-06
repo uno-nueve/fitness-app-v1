@@ -1,4 +1,5 @@
 import Day from '../../components/Day/Day'
+import './Week.css'
 
 const pushups = [
     'Wall Pushups',
@@ -144,6 +145,10 @@ const twistsProg = [
     ['3 holds of 15s (both sides)', '3 holds of 30s (both sides)', '3 holds of 60s (both sides)']
 ];
 
+const rest = ['Rest and stretching day :)'];
+
+const restProg = [''];
+
 const weekDays = [
     {
         day: 'MON',
@@ -189,7 +194,9 @@ const weekDays = [
     },
     {
         day: 'SUN',
-        exercises: []
+        exercises: [
+            {exercise: rest, progression: restProg}
+        ]
     }
 ]
 
