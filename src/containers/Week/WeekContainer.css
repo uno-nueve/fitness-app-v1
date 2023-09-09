@@ -1,0 +1,5 @@
+.week_container {
+    width: 1400px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}

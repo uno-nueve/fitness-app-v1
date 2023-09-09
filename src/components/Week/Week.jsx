@@ -1,5 +1,6 @@
-import Day from '../../components/Day/Day'
+import Day from '../Day/Day'
 import './Week.css'
+import PropTypes from 'prop-types'
 
 const pushups = [
     'Wall Pushups',
@@ -200,14 +201,25 @@ const weekDays = [
     }
 ]
 
-const Week = () => {
+const Week = ({value}) => {
     return (
-        <div className='week_container'>
-            {weekDays.map(({day, exercises}, index) => (
-                <Day key={index} dayTitle={day} exercisesData={exercises} />
-            ))}
-        </div>
+        <>
+            <h2>Week {value}</h2>
+            <div className='week_container'>
+                {weekDays.map(({day, exercises}, index) => (
+                    <Day 
+                        key={index} 
+                        dayTitle={day} 
+                        exercisesData={exercises}
+                    />
+                ))}
+            </div>
+        </>
     );
+}
+
+Week.propTypes = {
+    value: PropTypes.number
 }
 
 export default Week;
